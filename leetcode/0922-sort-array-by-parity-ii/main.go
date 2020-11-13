@@ -12,6 +12,9 @@ func main() {
 
 	A = []int{4, 2, 5, 7}
 	fmt.Println(sortArrayByParityII3(A))
+
+	A = []int{4, 2, 5, 7}
+	fmt.Println(sortArrayByParityII4(A))
 }
 
 /**
@@ -71,4 +74,24 @@ func sortArrayByParityII3(A []int) []int {
 		}
 	}
 	return A
+}
+
+/**
+他人提交中最快的做法
+*/
+func sortArrayByParityII4(A []int) []int {
+    l,r:=0,1
+    for{        
+        for l<len(A) && A[l]%2==0{
+            l+=2
+        }
+        for r<len(A) && A[r]%2==1{
+            r+=2
+        }
+        if l>len(A)||r>len(A){
+            break
+        }
+        A[l],A[r]=A[r],A[l]
+    }
+    return A
 }
