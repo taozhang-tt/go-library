@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	gas := []int{1,2,3,4,5}
 	cost := []int{3,4,5,1,2}
-	fmt.Println(canCompleteCircuit2(gas, cost))
+	fmt.Println(canCompleteCircuit(gas, cost))
 
 	gas = []int{2,3,4}
 	cost = []int{3,4,3}
@@ -13,7 +13,7 @@ func main() {
 
 	gas = []int{1,2,3}
 	cost = []int{3,1,2}
-	fmt.Println(canCompleteCircuit2(gas, cost))
+	fmt.Println(canCompleteCircuit3(gas, cost))
 }
 
 /**
