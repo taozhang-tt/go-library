@@ -108,11 +108,11 @@ func threeSum2(nums []int) [][]int {
 		}
 		l, r := first+1, len(nums)-1
 		for l < r {
-			if nums[first] + nums[l] + nums[r] == 0 {
+			if nums[first]+nums[l]+nums[r] == 0 {
 				ret = append(ret, []int{nums[first], nums[l], nums[r]})
 				l++
 				r--
-			} else if nums[first] + nums[l] + nums[r] < 0 {
+			} else if nums[first]+nums[l]+nums[r] < 0 {
 				l++
 			} else {
 				r--
