@@ -1,6 +1,6 @@
 package main
 
-/**
+/*
 1356. 根据数字二进制下 1 的数目排序
 	https://leetcode-cn.com/problems/sort-integers-by-the-number-of-1-bits/
 题目描述：
@@ -41,19 +41,19 @@ func main() {
 	fmt.Println((arr))
 }
 
-/**
+/*
 暴力解法
 */
-func getOneNum (item int) (num int) {	//获取整数含有多少个二进制位的1
+func getOneNum(item int) (num int) { //获取整数含有多少个二进制位的1
 	for item > 0 {
-		num += item%2
+		num += item % 2
 		item = item / 2
 	}
 	return num
 }
 func sortByBits(arr []int) []int {
 	m := map[int]int{}
-	insertSort := func (nums []int) {
+	insertSort := func(nums []int) {
 		for i := 1; i < len(nums); i++ {
 			temp := nums[i]
 			var j = i - 1
@@ -71,7 +71,7 @@ func sortByBits(arr []int) []int {
 	return arr
 }
 
-/**
+/*
 同样是暴力法，使用库函数排序
 */
 func sortByBits2(arr []int) []int {
@@ -80,18 +80,18 @@ func sortByBits2(arr []int) []int {
 		m[item] = getOneNum(item)
 	}
 	sort.Slice(arr, func(i, j int) bool {
-        x, y := arr[i], arr[j]
-        cx, cy := m[x], m[y]
-        return cx < cy || cx == cy && x < y
+		x, y := arr[i], arr[j]
+		cx, cy := m[x], m[y]
+		return cx < cy || cx == cy && x < y
 	})
 	return arr
 }
 
-/**
+/*
 利用位运算获取 1 的个数
 */
 func getOneByBit(num int) (total int) {
-	for (num > 0) {
+	for num > 0 {
 		total += num & 1
 		num >>= 1
 	}
@@ -104,15 +104,14 @@ func sortByBits3(arr []int) []int {
 		m[item] = getOneByBit(item)
 	}
 	sort.Slice(arr, func(i, j int) bool {
-        x, y := arr[i], arr[j]
-        cx, cy := m[x], m[y]
-        return cx < cy || cx == cy && x < y
+		x, y := arr[i], arr[j]
+		cx, cy := m[x], m[y]
+		return cx < cy || cx == cy && x < y
 	})
 	return arr
 }
 
-
-/**
+/*
 官方题解2：递推预处理
 	我们定义 bit[i]，bit[i] 为数字 i 二进制表示下数字 1 的个数，则可以列出递推式：
 	bit[i]=bit[i>>1]+(i&1)
@@ -122,18 +121,16 @@ func sortByBits3(arr []int) []int {
 var bit = [1e4 + 1]int{}
 
 func init() {
-    for i := 1; i <= 1e4; i++ {
-        bit[i] = bit[i>>1] + i&1
-    }
+	for i := 1; i <= 1e4; i++ {
+		bit[i] = bit[i>>1] + i&1
+	}
 }
 
 func sortByBits4(a []int) []int {
-    sort.Slice(a, func(i, j int) bool {
-        x, y := a[i], a[j]
-        cx, cy := bit[x], bit[y]
-        return cx < cy || cx == cy && x < y
-    })
-    return a
+	sort.Slice(a, func(i, j int) bool {
+		x, y := a[i], a[j]
+		cx, cy := bit[x], bit[y]
+		return cx < cy || cx == cy && x < y
+	})
+	return a
 }
-
-

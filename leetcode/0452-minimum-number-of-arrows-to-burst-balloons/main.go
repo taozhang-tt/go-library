@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"sort"
 )
-/**
+
+/*
 452. 用最少数量的箭引爆气球
 	https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons/
 题目描述：
@@ -23,13 +24,13 @@ import (
 	输出：2
 */
 func main() {
-	points := [][]int{{10,16},{2,8},{1,6},{7,12}}
+	points := [][]int{{10, 16}, {2, 8}, {1, 6}, {7, 12}}
 	fmt.Println(findMinArrowShots(points))
 
-	points = [][]int{{10,16},{18,20}}
+	points = [][]int{{10, 16}, {18, 20}}
 	fmt.Println(findMinArrowShots(points))
 
-	points = [][]int{{10,16}}
+	points = [][]int{{10, 16}}
 	fmt.Println(findMinArrowShots(points))
 
 	points = [][]int{}

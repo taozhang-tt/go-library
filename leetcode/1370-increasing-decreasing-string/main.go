@@ -1,7 +1,8 @@
 package main
 
 import "fmt"
-/**
+
+/*
 1370. 上升下降字符串
 	https://leetcode-cn.com/problems/increasing-decreasing-string/
 题目描述：
@@ -61,16 +62,16 @@ func main() {
 func sortString(s string) string {
 	sArr, ret := make([]int, 26), make([]byte, 0)
 	for _, ch := range s {
-		sArr[ch-'a'] ++
+		sArr[ch-'a']++
 	}
 	for len(ret) < len(s) {
-		for i:=0; i<26; i++ {
+		for i := 0; i < 26; i++ {
 			if sArr[i] > 0 {
 				ret = append(ret, byte(i+'a'))
 				sArr[i]--
 			}
 		}
-		for i:=25; i>=0; i-- {
+		for i := 25; i >= 0; i-- {
 			if sArr[i] > 0 {
 				ret = append(ret, byte(i+'a'))
 				sArr[i]--

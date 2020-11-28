@@ -5,7 +5,8 @@ import (
 	"math"
 	"sort"
 )
-/**
+
+/*
 1122. 数组的相对排序
 	https://leetcode-cn.com/problems/relative-sort-array/
 题目描述：
@@ -24,17 +25,17 @@ import (
 	arr2 中的每个元素 arr2[i] 都出现在 arr1 中
 */
 func main() {
-	arr1 := []int{2,3,1,3,2,4,6,7,9,2,19}
-	arr2 := []int{2,1,4,3,9,6}
-	ret := relativeSortArray(arr1, arr2);
+	arr1 := []int{2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19}
+	arr2 := []int{2, 1, 4, 3, 9, 6}
+	ret := relativeSortArray(arr1, arr2)
 
-	arr1 = []int{2,3,1,3,2,4,6,7,9,2,19}
-	arr2 = []int{2,1,4,3,9,6}
-	ret = relativeSortArray2(arr1, arr2);
+	arr1 = []int{2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19}
+	arr2 = []int{2, 1, 4, 3, 9, 6}
+	ret = relativeSortArray2(arr1, arr2)
 	fmt.Println(ret)
 }
 
-/**
+/*
 选择排序
 */
 func relativeSortArray(arr1 []int, arr2 []int) []int {
@@ -49,7 +50,7 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 	}
 	for i := 0; i < len(arr1); i++ {
 		minIndex := i
-		for j := i+1; j < len(arr1); j++ {
+		for j := i + 1; j < len(arr1); j++ {
 			if (sortMap[arr1[j]] < sortMap[arr1[minIndex]]) || (sortMap[arr1[j]] == sortMap[arr1[minIndex]] && arr1[j] < arr1[minIndex]) {
 				minIndex = j
 			}
@@ -59,7 +60,7 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 	return arr1
 }
 
-/**
+/*
 快排
 */
 func relativeSortArray2(arr1 []int, arr2 []int) []int {

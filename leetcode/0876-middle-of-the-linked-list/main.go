@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-/**
+/*
 876. 链表的中间结点
 	https://leetcode-cn.com/problems/middle-of-the-linked-list/
 题目描述：
@@ -17,7 +17,7 @@ func main() {
 			Next: &ListNode{
 				Val: 3,
 				Next: &ListNode{
-					Val: 4,
+					Val:  4,
 					Next: nil,
 				},
 			},
@@ -27,14 +27,14 @@ func main() {
 	fmt.Println(head.Val)
 
 	head = &ListNode{
-		Val: 1,
+		Val:  1,
 		Next: nil,
 	}
 	head = middleNode(head)
 	fmt.Println(head.Val)
 
 	head = &ListNode{
-		Val: 1,
+		Val:  1,
 		Next: nil,
 	}
 	head = middleNode2(head)
@@ -42,8 +42,8 @@ func main() {
 }
 
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 //如果有两个中间节点，就返回第二个

@@ -2,7 +2,7 @@ package main
 
 import "sort"
 
-/**
+/*
 164. 最大间距
 	https://leetcode-cn.com/problems/maximum-gap/
 题目描述：
@@ -19,8 +19,8 @@ import "sort"
 说明:
 	你可以假设数组中所有元素都是非负整数，且数值在 32 位有符号整数范围内。
 	请尝试在线性时间复杂度和空间复杂度的条件下解决此问题。
- */
-func main()  {
+*/
+func main() {
 
 }
 
@@ -29,8 +29,8 @@ func maximumGap(nums []int) int {
 		return nums[i] < nums[j]
 	})
 	max := 0
-	for i:=0; i<len(nums)-1; i++ {
-		if nums[i+1] - nums[i] > max {
+	for i := 0; i < len(nums)-1; i++ {
+		if nums[i+1]-nums[i] > max {
 			max = nums[i+1] - nums[i]
 		}
 	}

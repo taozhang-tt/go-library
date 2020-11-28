@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-/**
+/*
 402. 移掉K位数字
 	https://leetcode-cn.com/problems/remove-k-digits/
 题目描述
@@ -35,7 +35,6 @@ func main() {
 	k = 1
 	fmt.Println(removeKdigits(num, k))
 
-
 	num = "123"
 	k = 2
 	fmt.Println(removeKdigits(num, k))
@@ -47,14 +46,14 @@ func main() {
 
 func removeKdigits(num string, k int) string {
 	stack := []byte{}
-	for i:=0; i<len(num); i++ {
+	for i := 0; i < len(num); i++ {
 		for k > 0 && len(stack) > 0 && num[i] < stack[len(stack)-1] {
 			stack = stack[:len(stack)-1]
 			k--
 		}
 		stack = append(stack, num[i])
 	}
-	stack = stack[:len(stack)-k]	//考虑一下，全部单调递增，那直接截取掉最后 k 个即可
+	stack = stack[:len(stack)-k] //考虑一下，全部单调递增，那直接截取掉最后 k 个即可
 	ret := strings.TrimLeft(string(stack), "0")
 	if ret == "" {
 		return "0"

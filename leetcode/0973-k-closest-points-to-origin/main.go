@@ -1,6 +1,6 @@
 package main
 
-/**
+/*
 973. 最接近原点的 K 个点
 	https://leetcode-cn.com/problems/k-closest-points-to-origin/
 题目描述：
@@ -29,7 +29,7 @@ import (
 func main() {
 	var points = [][]int{}
 	var K int
-	points = [][]int{{3,3},{5,-1},{-2,4}}
+	points = [][]int{{3, 3}, {5, -1}, {-2, 4}}
 	K = 1
 	fmt.Println(kClosest2(points, K))
 
@@ -45,16 +45,16 @@ type Point struct {
 
 type DisHeap []Point
 
-func (h DisHeap) Len() int { 
-	return len(h) 
+func (h DisHeap) Len() int {
+	return len(h)
 }
 
 func (h DisHeap) Less(i, j int) bool {
 	return (h[i].X*h[i].X + h[i].Y*h[i].Y) < (h[j].X*h[j].X + h[j].Y*h[j].Y)
 }
 
-func (h DisHeap) Swap(i, j int) { 
-	h[i], h[j] = h[j], h[i] 
+func (h DisHeap) Swap(i, j int) {
+	h[i], h[j] = h[j], h[i]
 }
 
 func (h *DisHeap) Push(x interface{}) {
@@ -69,7 +69,7 @@ func (h *DisHeap) Pop() interface{} {
 	return x
 }
 
-/**
+/*
 最小堆做法
 */
 func kClosest(points [][]int, K int) [][]int {
@@ -89,12 +89,12 @@ func kClosest(points [][]int, K int) [][]int {
 	return ret
 }
 
-/**
+/*
 官方题解、直接排序
 */
 func kClosest2(points [][]int, K int) [][]int {
 	sort.Slice(points, func(i, j int) bool {
-		return points[i][0]*points[i][0] + points[i][1]*points[i][1] < points[j][0]*points[j][0] + points[j][1]*points[j][1]
+		return points[i][0]*points[i][0]+points[i][1]*points[i][1] < points[j][0]*points[j][0]+points[j][1]*points[j][1]
 	})
 	return points[:K]
 }

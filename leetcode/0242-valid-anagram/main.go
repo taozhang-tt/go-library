@@ -1,7 +1,8 @@
 package main
 
 import "fmt"
-/**
+
+/*
 242. 有效的字母异位词
 	https://leetcode-cn.com/problems/valid-anagram/
 题目描述
@@ -15,7 +16,7 @@ import "fmt"
 */
 
 func main() {
-	s := "anagram" 
+	s := "anagram"
 	t := "nagaram"
 	fmt.Println(isAnagram(s, t))
 	fmt.Println(isAnagram2(s, t))
@@ -26,7 +27,7 @@ func isAnagram(s string, t string) bool {
 		return false
 	}
 	sum := make(map[byte]int, 26)
-	for i:=0; i<len(s); i++ {
+	for i := 0; i < len(s); i++ {
 		sum[s[i]]++
 		sum[t[i]]--
 	}
@@ -38,23 +39,23 @@ func isAnagram(s string, t string) bool {
 	return true
 }
 
-/**
+/*
 最快的解法
 */
 func isAnagram2(s string, t string) bool {
-    m, n := len(s), len(t)
-    if m != n {
-        return false
-    }
-    table := make([]int, 26)
-    for i := 0; i < m; i++ {
-        table[s[i] - 'a']++
-    }
-    for i := 0; i < n; i++ {
-        table[t[i] - 'a']--
-        if table[t[i] - 'a'] < 0 {
-            return false
-        }
-    }
-    return true
+	m, n := len(s), len(t)
+	if m != n {
+		return false
+	}
+	table := make([]int, 26)
+	for i := 0; i < m; i++ {
+		table[s[i]-'a']++
+	}
+	for i := 0; i < n; i++ {
+		table[t[i]-'a']--
+		if table[t[i]-'a'] < 0 {
+			return false
+		}
+	}
+	return true
 }

@@ -17,7 +17,7 @@ func main() {
 	fmt.Println(sortArrayByParityII4(A))
 }
 
-/**
+/*
 选择排序
 */
 func sortArrayByParityII(A []int) []int {
@@ -36,7 +36,7 @@ func sortArrayByParityII(A []int) []int {
 	return A
 }
 
-/**
+/*
 两次遍历
 */
 func sortArrayByParityII2(A []int) []int {
@@ -60,7 +60,7 @@ func sortArrayByParityII2(A []int) []int {
 	return A
 }
 
-/**
+/*
 双指针
 	i 偶数指针，j 奇数指针
 */
@@ -76,22 +76,22 @@ func sortArrayByParityII3(A []int) []int {
 	return A
 }
 
-/**
+/*
 他人提交中最快的做法
 */
 func sortArrayByParityII4(A []int) []int {
-    l,r:=0,1
-    for{        
-        for l<len(A) && A[l]%2==0{
-            l+=2
-        }
-        for r<len(A) && A[r]%2==1{
-            r+=2
-        }
-        if l>len(A)||r>len(A){
-            break
-        }
-        A[l],A[r]=A[r],A[l]
-    }
-    return A
+	l, r := 0, 1
+	for {
+		for l < len(A) && A[l]%2 == 0 {
+			l += 2
+		}
+		for r < len(A) && A[r]%2 == 1 {
+			r += 2
+		}
+		if l > len(A) || r > len(A) {
+			break
+		}
+		A[l], A[r] = A[r], A[l]
+	}
+	return A
 }

@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-/**
+/*
 148. 排序链表
     https://leetcode-cn.com/problems/sort-list/
 题目描述：
@@ -20,7 +20,7 @@ func main() {
 				Next: &ListNode{
 					Val: 2,
 					Next: &ListNode{
-						Val: 1,
+						Val:  1,
 						Next: nil,
 					},
 				},
@@ -37,28 +37,27 @@ func printList(head *ListNode) {
 	}
 }
 
-
 type ListNode struct {
-    Val int
-    Next *ListNode
+	Val  int
+	Next *ListNode
 }
 
 //归并排序
 func sortList(head *ListNode) *ListNode {
-    if head == nil || head.Next == nil {
+	if head == nil || head.Next == nil {
 		return head
 	}
-    fast, slow := head, head
+	fast, slow := head, head
 	for fast.Next != nil {
 		if fast.Next.Next == nil {
 			break
 		}
 		slow = slow.Next
 		fast = fast.Next.Next
-    }
-    h2 := slow.Next
-    slow.Next = nil
-	
+	}
+	h2 := slow.Next
+	slow.Next = nil
+
 	return mergeList(sortList(head), sortList(h2))
 }
 

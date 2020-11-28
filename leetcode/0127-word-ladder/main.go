@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-/**
+/*
 127. 单词接龙
 	https://leetcode-cn.com/problems/word-ladder/
 题目描述：
@@ -55,7 +55,7 @@ func main() {
 	fmt.Println(ladderLength4(beginWord, endWord, wordList))
 }
 
-/**
+/*
 官方题解
 	本题要求的是最短转换序列的长度，看到最短首先想到的就是广度优先搜索。想到广度优先搜索自然而然的就能想到图，但是本题并没有直截了当的给出图的模型，因此我们需要把它抽象成图的模型。
 	我们可以把每个单词都抽象为一个点，如果两个单词可以只改变一个字母进行转换，那么说明他们之间有一条双向边。因此我们只需要把满足转换条件的点相连，就形成了一张图。
@@ -124,7 +124,7 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 	return 0
 }
 
-/**
+/*
 看完官方题解后自己梳理一遍
 	建模，利用图表示出所有单词间的关系，为了方便，添加虚拟节点，例如对于单词 dot，额外添加 *ot, d*t, do*
 	使用邻接表存储
@@ -134,21 +134,21 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 
 func ladderLength2(beginWord string, endWord string, wordList []string) int {
 	var (
-		wordId = make(map[string]int)	//所有顶点的集合，也是单词到id的映射表
-		graph  = make([][]int, 0)	//而为数组存储图，采用的是邻接表存储，而非邻接矩阵
+		wordId = make(map[string]int) //所有顶点的集合，也是单词到id的映射表
+		graph  = make([][]int, 0)     //而为数组存储图，采用的是邻接表存储，而非邻接矩阵
 	)
 	addVertice := func(word string) int { //添加顶点
-		id, has := wordId[word]	//获取该节点对应的id
-		if !has {	//如果该节点第一次出现，未包含在顶点集合里，将该顶点放入顶点集合
+		id, has := wordId[word] //获取该节点对应的id
+		if !has {               //如果该节点第一次出现，未包含在顶点集合里，将该顶点放入顶点集合
 			id = len(wordId)
-			wordId[word] = id	//单词映射成id
-			graph = append(graph, []int{})	//为该顶点创建一个假链表，存储其可以到达的顶点
+			wordId[word] = id              //单词映射成id
+			graph = append(graph, []int{}) //为该顶点创建一个假链表，存储其可以到达的顶点
 		}
 		return id
 	}
 
 	addEdge := func(word string) int {
-		id1 := addVertice(word)	//添加顶点，并返回该顶点的 id
+		id1 := addVertice(word) //添加顶点，并返回该顶点的 id
 		s := []byte(word)
 		for index, char := range s { //添加虚拟节点
 			s[index] = '*'
@@ -159,7 +159,7 @@ func ladderLength2(beginWord string, endWord string, wordList []string) int {
 		}
 		return id1
 	}
-	for _, word := range wordList {	//建模，将 wordList 中所有的单词存储到图中
+	for _, word := range wordList { //建模，将 wordList 中所有的单词存储到图中
 		addEdge(word)
 	}
 	beginId := addEdge(beginWord) //将起始单词也存入图中，使其作为搜索的开始点
@@ -167,20 +167,20 @@ func ladderLength2(beginWord string, endWord string, wordList []string) int {
 	if !has {
 		return 0
 	}
-	const inf int = math.MaxInt16 //最大整数
+	const inf int = math.MaxInt16    //最大整数
 	dist := make([]int, len(wordId)) //dist记录从开始顶点到目标顶点经过的距离
-	for id := range dist {	//每个点到目标顶点的距离初始化为最大整数，同时也标记该顶点未被访问过
+	for id := range dist {           //每个点到目标顶点的距离初始化为最大整数，同时也标记该顶点未被访问过
 		dist[id] = inf
 	}
-	queue := []int{beginId}	//广度优先搜索的那个队列，起始只有开始的那个顶点
-	dist[beginId] = 0	//不把起始顶点的那段距离算入，从它能到达的节点才开始计算距离，所以返回之前记得 + 1
+	queue := []int{beginId} //广度优先搜索的那个队列，起始只有开始的那个顶点
+	dist[beginId] = 0       //不把起始顶点的那段距离算入，从它能到达的节点才开始计算距离，所以返回之前记得 + 1
 	for len(queue) > 0 {
 		curr := queue[0]
 		queue = queue[1:]
-		if curr == endId {	//搜索到了目标顶点
+		if curr == endId { //搜索到了目标顶点
 			return dist[endId]/2 + 1
 		}
-		for _, next := range graph[curr] {	//遍历当前顶点能到达（未被访问过）的所有顶点，将其放入广搜队列
+		for _, next := range graph[curr] { //遍历当前顶点能到达（未被访问过）的所有顶点，将其放入广搜队列
 			if dist[next] == inf {
 				dist[next] = dist[curr] + 1
 				queue = append(queue, next)
@@ -189,7 +189,6 @@ func ladderLength2(beginWord string, endWord string, wordList []string) int {
 	}
 	return 0
 }
-
 
 //////////////////////////////////////////////下面是解答去看到的答案////////////////////////////////////////////////
 //bfs,标准模板
@@ -200,30 +199,30 @@ func ladderLength3(beginWord string, endWord string, wordList []string) int {
 
 	for id, wd := range wordList {
 		for i := range wd {
-			k := wd[:i] + "*" + wd[i + 1:]
-			if _,ok := wdict[k];!ok {
+			k := wd[:i] + "*" + wd[i+1:]
+			if _, ok := wdict[k]; !ok {
 				wdict[k] = []int{}
 			}
-			wdict[k] = append(wdict[k],id)
+			wdict[k] = append(wdict[k], id)
 		}
 	}
-	wordList = append(wordList,beginWord)
+	wordList = append(wordList, beginWord)
 	q := []int{len(wordList) - 1}
-	used,l := make([]bool,len(wordList)),1
+	used, l := make([]bool, len(wordList)), 1
 	for len(q) > 0 {
 		nextQ := []int{}
-		l ++
-		for _,i := range q {
+		l++
+		for _, i := range q {
 			w := wordList[i]
 			for i := range w {
-				k := w[:i] + "*" + w[i + 1:]
-				for _,wid := range wdict[k] {
+				k := w[:i] + "*" + w[i+1:]
+				for _, wid := range wdict[k] {
 					if wordList[wid] == endWord {
 						return l
 					}
 					if !used[wid] {
 						used[wid] = true
-						nextQ = append(nextQ,wid)
+						nextQ = append(nextQ, wid)
 					}
 				}
 			}
@@ -235,24 +234,24 @@ func ladderLength3(beginWord string, endWord string, wordList []string) int {
 
 //双向BFS
 func ladderLength4(beginWord string, endWord string, wordList []string) int {
-	step := 0 
+	step := 0
 
 	wordMap := make(map[string]int)
 
-	for i,w := range wordList {
+	for i, w := range wordList {
 		wordMap[w] = i
 	}
 	startQueue := []string{beginWord}
 	endQueue := []string{endWord}
-	startUsed := make([]bool,len(wordList))
-	endUsed := make([]bool,len(wordList))
-	if i,ok := wordMap[endWord];!ok {
-		return 0 
+	startUsed := make([]bool, len(wordList))
+	endUsed := make([]bool, len(wordList))
+	if i, ok := wordMap[endWord]; !ok {
+		return 0
 	} else {
 		endUsed[i] = true
 	}
 	for len(startQueue) > 0 {
-		step ++
+		step++
 		l := len(startQueue)
 		for i := 0; i < l; i++ {
 			chars := []byte(startQueue[i])
@@ -261,7 +260,7 @@ func ladderLength4(beginWord string, endWord string, wordList []string) int {
 
 				for c := 'a'; c <= 'z'; c++ {
 					chars[j] = byte(c)
-					idw,ok := wordMap[string(chars)]
+					idw, ok := wordMap[string(chars)]
 
 					if !ok || startUsed[idw] {
 						continue
@@ -270,7 +269,7 @@ func ladderLength4(beginWord string, endWord string, wordList []string) int {
 					if endUsed[idw] {
 						return step + 1
 					} else {
-						startQueue = append(startQueue,string(chars))
+						startQueue = append(startQueue, string(chars))
 						startUsed[idw] = true
 					}
 				}
@@ -280,8 +279,8 @@ func ladderLength4(beginWord string, endWord string, wordList []string) int {
 		}
 		startQueue = startQueue[l:]
 		if len(startQueue) > len(endQueue) {
-			startQueue,endQueue = endQueue,startQueue
-			startUsed,endUsed = endUsed,startUsed
+			startQueue, endQueue = endQueue, startQueue
+			startUsed, endUsed = endUsed, startUsed
 		}
 	}
 	return 0
