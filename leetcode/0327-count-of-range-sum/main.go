@@ -22,6 +22,7 @@ func main() {
 	lower := -2
 	upper := 2
 	fmt.Println(countRangeSum(nums, lower, upper))
+	fmt.Println(countRangeSum2(nums, lower, upper))
 }
 
 /*

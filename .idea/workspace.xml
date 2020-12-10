@@ -20,14 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbf7b22f-6bfe-436c-b7ec-ccbe61d50a13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/leetcode/1491-average-salary-excluding-the-minimum-and-maximum-salary/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/leetcode/1528-shuffle-string/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -58,19 +59,36 @@
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="go build go-library/leetcode/0118-pascals-triangle" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="go-library" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/leetcode/0118-pascals-triangle/main.go" />
+      <package value="go-library/leetcode/0118-pascals-triangle" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build go-library/leetcode/0118-pascals-triangle" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -81,6 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606352751838</updated>
       <workItem from="1606352752879" duration="2228000" />
+      <workItem from="1607220296465" duration="2063000" />
     </task>
     <servers />
   </component>
@@ -97,8 +116,55 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="123" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607221071296">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="184" y="123" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1607221071296" />
+    <state width="1398" height="286" key="GridCell.Tab.0.bottom" timestamp="1607222572634">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1607222572634" />
+    <state width="1398" height="286" key="GridCell.Tab.0.center" timestamp="1607222572633">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1607222572633" />
+    <state width="1398" height="286" key="GridCell.Tab.0.left" timestamp="1607222572632">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1607222572632" />
+    <state width="1398" height="286" key="GridCell.Tab.0.right" timestamp="1607222572634">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1607222572634" />
+    <state width="1398" height="286" key="GridCell.Tab.1.bottom" timestamp="1607222572635">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1607222572635" />
+    <state width="1398" height="286" key="GridCell.Tab.1.center" timestamp="1607222572635">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1607222572635" />
+    <state width="1398" height="286" key="GridCell.Tab.1.left" timestamp="1607222572635">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1607222572635" />
+    <state width="1398" height="286" key="GridCell.Tab.1.right" timestamp="1607222572635">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="286" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1607222572635" />
+    <state x="221" y="100" key="SettingsEditor" timestamp="1606725018822">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="221" y="100" key="SettingsEditor/0.23.1440.877/548.-1057.1920.1057@0.23.1440.877" timestamp="1606725018822" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1607220437093">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1607220437093" />
   </component>
 </project>
