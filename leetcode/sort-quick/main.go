@@ -56,19 +56,19 @@ func quickSort(arr []int, left, right int) {
 		for l < r && arr[r] > mid {
 			r--
 		}
-		if (l < r) {
+		if l < r {
 			arr[l] = arr[r]
 			l++
 		}
 		for l < r && arr[l] < mid {
 			l++
 		}
-		if (l < r) {
+		if l < r {
 			arr[r] = arr[l]
 			r--
 		}
 	}
 	arr[l] = mid
 	quickSort(arr, left, l-1)
-	quickSort(arr , l+1, right)
+	quickSort(arr, l+1, right)
 }

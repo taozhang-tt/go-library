@@ -10,7 +10,6 @@ import (
 	"golang.org/x/oauth2/jwt"
 )
 
-type VoidedOrder struct{}
 
 //访问谷歌退货查询接口的证书
 var CA_PRIVATE_PEM = `
@@ -44,16 +43,15 @@ rUcVar2klot2ac0xU4s0tgEi
 -----END PRIVATE KEY-----
 	`
 func main() {
-    GetVoidedOrderFromGoogle("com.joyyou.sdk.facebook.test", "lb_0.09", "emgbaofhllfnkefgkachfkcd.AO-J1OzHaEi72YbWYLwkXOWhMDYTQljC8RmMYcaDMsX2YLpKOk3V-BEVHcm182NAcW21_vbtPBUJCfqxDYvYWw_wN2A_13cneo6Tlrt7b21EFAmcz0tf8Ss")
+    GetVoidedOrderFromGoogle("com.joyyou.sdk.facebook.test", "lb_0.09", "lgkihllcjdpindgjopbmdhei.AO-J1OwftUsQ2ZoX_7Sk9M-JuWtr_WaTeHylLjlOooQyNtojojrFpiXvf6vH0X-ZhWClMwC1k9tqmnRirsvgXCgbd-8P5WhAQi-aF2yEHzFg-IDwBmsjrb4")
 }
 
 //通过谷歌 api 获取已退货的订单
 func GetVoidedOrderFromGoogle(packageName, productId, token string) (err error) {
 	var (
-		googleApi             = "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/"+packageName+"/purchases/products/"+productId+"/tokens/"+token
+		googleApi             = "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/"+packageName+"/purchases/products/"+productId+"/tokens/"+token+":acknowledge"
 		resp                  *http.Response
 		body                  []byte
-		
 	)
 	conf := &jwt.Config{
 		Email:      "test-581@api-6696778595688237216-170767.iam.gserviceaccount.com",
@@ -63,14 +61,16 @@ func GetVoidedOrderFromGoogle(packageName, productId, token string) (err error) 
 		},
 		TokenURL: google.JWTTokenURL,
 	}
+
 	client := conf.Client(oauth2.NoContext)
-	req, _ := http.NewRequest(http.MethodGet, googleApi, nil)
+	req, _ := http.NewRequest(http.MethodPost, googleApi, nil)
 	if resp, err = client.Do(req); err != nil {
-		fmt.Println(err)
+		fmt.Println("err: ", err)
 		return
 	}
 	fmt.Println(resp.StatusCode)
 	if body, err = ioutil.ReadAll(resp.Body); err != nil {
+		fmt.Println("err: ", err)
 		return
 	}
     fmt.Println(string(body))
