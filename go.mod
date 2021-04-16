@@ -1,4 +1,4 @@
-module go-library
+module github.com/taozhang-tt/go-library
 
 go 1.13
 
